@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" rx="100" fill="#1C1C1E"/>
+  <defs>
+    <linearGradient id="pg" x1="15%" y1="90%" x2="85%" y2="10%">
+      <stop offset="0%"   stop-color="#34C759"/>
+      <stop offset="16%"  stop-color="#32ADE6"/>
+      <stop offset="32%"  stop-color="#007AFF"/>
+      <stop offset="48%"  stop-color="#5E5CE6"/>
+      <stop offset="64%"  stop-color="#FF375F"/>
+      <stop offset="80%"  stop-color="#FF9F0A"/>
+      <stop offset="100%" stop-color="#FFD60A"/>
+    </linearGradient>
+  </defs>
+  <!-- Outermost feather layer -->
+  <path fill="url(#pg)" d="
+    M 68,460
+    C 95,415 155,348 222,278
+    C 288,210 352,140 398,62
+    L 438,42
+    C 428,62 400,108 360,162
+    C 306,230 238,296 172,358
+    C 118,406 78,448 62,470
+    Z"/>
+  <!-- Middle layer -->
+  <path fill="url(#pg)" opacity="0.72" d="
+    M 52,428
+    C 76,386 132,322 196,256
+    C 260,190 322,122 368,48
+    L 408,30
+    C 396,52 366,96 326,148
+    C 272,216 204,282 140,344
+    C 88,392 50,430 46,456
+    Z"/>
+  <!-- Inner thin layer -->
+  <path fill="url(#pg)" opacity="0.44" d="
+    M 40,394
+    C 60,356 112,295 172,232
+    C 234,168 294,102 338,34
+    L 376,18
+    C 362,40 330,82 290,132
+    C 234,200 166,266 104,328
+    C 56,374 34,408 34,432
+    Z"/>
+</svg>

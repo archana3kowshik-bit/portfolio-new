@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — Archana Kowshik</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <nav class="project-nav" id="project-nav">
+    <a href="index.html#work" class="project-nav-back" id="project-nav-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All work
+    </a>
+    <a href="index.html" class="project-nav-logo">
+      <img src="logo.png" alt="Archana Kowshik" />
+    </a>
+  </nav>
+
+  <header class="project-header" id="project-header"></header>
+
+  <main class="project-content" id="project-content"></main>
+
+  <footer id="project-footer"></footer>
+
+  <script src="projects.js"></script>
+  <script>
+    const TOOL_ICONS = {
+      'Adobe Illustrator': { logo: 'illustrator-icon.png' },
+      'Illustrator':       { logo: 'illustrator-icon.png' },
+      'Adobe Photoshop':   { logo: 'photoshop-icon.png' },
+      'Photoshop':         { logo: 'photoshop-icon.png' },
+      'Adobe InDesign':    { logo: 'indesign-icon.png' },
+      'InDesign':          { logo: 'indesign-icon.png' },
+      'Adobe After Effects': { logo: 'aftereffects-icon.png' },
+      'After Effects':     { logo: 'aftereffects-icon.png' },
+      'Adobe Premiere Pro': { abbr: 'Pr', color: '#9999FF', bg: '#0D0040' },
+      'Premiere Pro':      { abbr: 'Pr', color: '#9999FF', bg: '#0D0040' },
+      'Figma':             { logo: 'figma-icon.png' },
+      'Procreate':         { logo: 'procreate-icon.png' },
+      'Blender':           { logo: 'blender-icon.png' },
+      'Blender 3D':        { logo: 'blender-icon.png' },
+      'Canva':             { logo: 'canva-icon.png' },
+    };
+
+    function renderToolIcons(toolsStr) {
+      const tools = toolsStr.split('·').map(t => t.trim());
+      return '<div class="tool-icons">' + tools.map(tool => {
+        const icon = TOOL_ICONS[tool];
+        if (icon) {
+          if (icon.logo) {
+            return `<span class="tool-icon tool-icon-logo" title="${tool}"><img src="${icon.logo}" alt="${tool}" /></span>`;
+          }
+          return `<span class="tool-icon" style="background:${icon.bg};color:${icon.color}" title="${tool}">${icon.abbr}</span>`;
+        }
+        return `<span class="tool-tag">${tool}</span>`;
+      }).join('') + '</div>';
+    }
+  </script>
+  <script>
+    // Support both ?id=slug and #slug
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || window.location.hash.replace('#', '');
+    const project = PROJECTS.find(p => p.id === id);
+
+    if (!project) {
+      document.title = 'Not Found — Archana Kowshik';
+      document.getElementById('project-header').innerHTML =
+        '<p style="font-family:\'Instrument Sans\',sans-serif;color:#666;padding-top:2rem;">Project not found. <a href="index.html">← Back</a></p>';
+    } else {
+      document.title = project.title + ' — Archana Kowshik';
+
+      // ── Header ──
+      document.getElementById('project-header').innerHTML = `
+        <span class="project-category">${project.category} · ${project.year}</span>
+        <h1 class="project-title">${project.title}</h1>
+        <div class="project-meta">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Role</span>
+            <span class="project-meta-value">${project.role}</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Tools</span>
+            ${renderToolIcons(project.tools)}
+          </div>
+        </div>
+        <p class="project-brief">${project.brief}</p>
+      `;
+
+      // ── Content sections ──
+      const content = document.getElementById('project-content');
+      project.sections.forEach(sec => {
+        if (sec.type === 'image') {
+          const div = document.createElement('div');
+          div.className = 'project-img-full';
+          div.innerHTML = `<img src="${sec.src}" alt="" loading="lazy" />`;
+          content.appendChild(div);
+
+        } else if (sec.type === 'grid') {
+          const div = document.createElement('div');
+          div.className = `project-img-grid cols-${sec.cols}`;
+          sec.images.forEach(img => {
+            div.innerHTML += `<img src="${img.src}" alt="" loading="lazy" />`;
+          });
+          content.appendChild(div);
+
+        } else if (sec.type === 'video') {
+          const div = document.createElement('div');
+          div.className = 'project-video';
+          div.innerHTML = `
+            ${sec.label ? `<span class="project-video-label">${sec.label}</span>` : ''}
+            <video src="${sec.src}" controls playsinline preload="metadata"></video>
+          `;
+          content.appendChild(div);
+
+        } else if (sec.type === 'campaign-header') {
+          const div = document.createElement('div');
+          div.className = 'campaign-header';
+          div.innerHTML = `<h3>${sec.title}</h3>`;
+          content.appendChild(div);
+
+        } else if (sec.type === 'case-hero') {
+          const div = document.createElement('div');
+          div.className = 'case-hero';
+          div.innerHTML = `<img src="${sec.src}" alt="" loading="eager" />`;
+          content.appendChild(div);
+
+        } else if (sec.type === 'text-block') {
+          const div = document.createElement('div');
+          div.className = 'case-text-block reveal';
+          div.innerHTML = `
+            ${sec.label ? `<span class="section-label">${sec.label}</span>` : ''}
+            <p>${sec.body}</p>
+          `;
+          content.appendChild(div);
+
+        } else if (sec.type === 'autoplay-video') {
+          const wrap = document.createElement('div');
+          wrap.className = 'autoplay-video-wrap' + (sec.label ? ' labeled-image-wrap' : '');
+          if (sec.label) {
+            const label = document.createElement('span');
+            label.className = 'section-label reveal-label';
+            label.textContent = sec.label;
+            wrap.appendChild(label);
+          }
+          const vidDiv = document.createElement('div');
+          vidDiv.className = 'autoplay-video reveal-wipe';
+          vidDiv.style.setProperty('--reveal-delay', sec.label ? '120ms' : '0ms');
+          vidDiv.innerHTML = `<video autoplay muted loop playsinline><source src="${sec.src}" type="video/mp4"></video>`;
+          wrap.appendChild(vidDiv);
+          content.appendChild(wrap);
+
+        } else if (sec.type === 'labeled-image') {
+          const wrap = document.createElement('div');
+          wrap.className = 'labeled-image-wrap';
+          const label = document.createElement('span');
+          label.className = 'section-label reveal-label';
+          label.textContent = sec.label;
+          const imgDiv = document.createElement('div');
+          imgDiv.className = 'project-img-full reveal-wipe';
+          imgDiv.style.setProperty('--reveal-delay', '120ms');
+          imgDiv.innerHTML = `<img src="${sec.src}" alt="" loading="lazy" />`;
+          wrap.appendChild(label);
+          wrap.appendChild(imgDiv);
+          content.appendChild(wrap);
+
+        } else if (sec.type === 'campaign-index') {
+          const div = document.createElement('div');
+          div.className = 'campaign-index';
+          div.innerHTML = sec.campaigns.map(c => `
+            <a href="${c.customUrl || ('project?id=' + c.id)}" class="campaign-index-card">
+              <div class="campaign-index-thumb">
+                <img src="${c.thumb}" alt="${c.title}" loading="lazy" />
+              </div>
+              <div class="campaign-index-meta">
+                <span class="campaign-index-year">${c.year}</span>
+                <span class="campaign-index-title">${c.title}</span>
+              </div>
+            </a>
+          `).join('');
+          content.appendChild(div);
+        }
+      });
+
+      // ── If sub-project, update nav back button to point to parent ──
+      if (project.parent) {
+        const backEl = document.getElementById('project-nav-back');
+        backEl.href = 'project?id=' + project.parent;
+        backEl.childNodes[backEl.childNodes.length - 1].textContent = ' Cashfree';
+      }
+
+      // ── If this is a sub-project, show "Back to Cashfree" + sibling nav in footer ──
+      if (project.parent) {
+        const parent = PROJECTS.find(p => p.id === project.parent);
+        const siblings = PROJECTS.filter(p => p.parent === project.parent);
+        const sibIdx = siblings.findIndex(p => p.id === id);
+        const nextSib = siblings[(sibIdx + 1) % siblings.length];
+        document.getElementById('project-footer').innerHTML = `
+          <div class="project-next">
+            <a href="project?id=${project.parent}" class="project-parent-back">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back to ${parent ? parent.title : 'Cashfree'}
+            </a>
+            <div>
+              <span class="project-next-label">Next campaign</span>
+              <a href="project?id=${nextSib.id}" class="project-next-link">${nextSib.title}</a>
+            </div>
+            <span class="project-next-arrow">→</span>
+          </div>
+        `;
+      } else {
+        // ── Next project (top-level only) ──
+        const topLevel = PROJECTS.filter(p => !p.parent);
+        const idx = topLevel.findIndex(p => p.id === id);
+        const next = topLevel[(idx + 1) % topLevel.length];
+        document.getElementById('project-footer').innerHTML = `
+          <div class="project-next">
+            <div>
+              <span class="project-next-label">Next project</span>
+              <a href="project?id=${next.id}" class="project-next-link">${next.title}</a>
+            </div>
+            <span class="project-next-arrow">→</span>
+          </div>
+        `;
+      }
+    }
+
+    // ── Scroll reveal ──
+    const revealEls = Array.from(document.querySelectorAll('.reveal, .reveal-wipe, .reveal-label'));
+    if (revealEls.length) {
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+      revealEls.forEach(el => revealObs.observe(el));
+    }
+
+    // ── Parallax on case hero ──
+    const heroImg = document.querySelector('.case-hero img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        heroImg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+      }, { passive: true });
+    }
+
+    // ── Nav scroll state ──
+    const nav = document.getElementById('project-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Restore saved theme ──
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme && savedTheme !== 'default') {
+      document.body.classList.add('theme-' + savedTheme);
+    }
+  </script>
+
+  <!-- THEME SWITCHER -->
+  <div class="theme-switcher">
+    <div class="theme-swatches" id="theme-swatches">
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Default</span>
+        <button class="theme-swatch active" data-theme="default" title="Default"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Butter</span>
+        <button class="theme-swatch" data-theme="butter" title="Butter"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Sky</span>
+        <button class="theme-swatch" data-theme="sky" title="Sky"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Dark</span>
+        <button class="theme-swatch" data-theme="dark" title="Dark"></button>
+      </div>
+    </div>
+    <div class="theme-btn-row">
+      <div class="theme-hint" id="theme-hint">try changing theme ✦</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Change theme">
+      <svg width="22" height="22" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M241.812 0H271.087C273.927 1.0151 279.467 0.858635 282.557 1.20211C285.19 1.49468 287.9 1.74654 290.547 2.06122C301.305 3.37212 311.98 5.28285 322.525 7.78447C391.132 24.6613 454.543 67.0703 487.7 130.743C498.103 150.313 505.325 171.413 509.098 193.253C509.773 197.31 510.32 201.386 510.74 205.477C510.982 207.969 511.272 213.62 512 215.803V235.125C511.977 235.205 511.952 235.285 511.93 235.365C510.742 246.498 509.258 257.34 506.04 268.11C495.473 303.482 471.013 333.865 438.763 351.845C422.14 361.113 403.14 367.188 384.158 369.04C369.533 370.443 354.91 369.69 340.277 369.883C329.657 370.023 316.22 369.003 306.247 372.103C292.662 376.448 282.235 387.42 278.582 401.205C275.507 412.217 277.02 424.005 282.772 433.883C285.305 438.23 288.873 441.995 291.658 446.193C307.878 470.625 294.015 504.755 265.3 510.795C264.412 510.98 261.035 511.678 260.395 512H241.839C239.642 511.22 232.892 510.953 230.239 510.693C224.814 510.163 220.021 509.597 214.63 508.68C187.89 504.327 162.016 495.733 137.986 483.22C74.2432 450.042 27.334 391.655 8.66992 322.263C5.07075 309.143 2.72057 295.56 1.34767 282.035C1.04838 279.088 1.00682 273.06 0 270.41V241.385C0.880335 239.386 1.23338 230.663 1.56172 227.721C2.10422 222.703 2.8059 217.705 3.66575 212.732C8.26692 185.765 17.1772 159.714 30.055 135.578C63.4637 72.8347 121.47 26.8192 190.17 8.5629C200.882 5.7103 211.77 3.5662 222.764 2.14456C225.458 1.79997 228.186 1.51878 230.869 1.19934C233.894 0.839217 239.039 0.975322 241.812 0ZM185.375 142.068C208.826 141.785 227.618 122.562 227.368 99.1107C227.119 75.659 207.924 56.84 184.472 57.0547C160.971 57.27 142.104 76.5138 142.354 100.014C142.604 123.514 161.875 142.353 185.375 142.068ZM103.386 255.673C126.785 253.54 144.015 232.83 141.856 209.434C139.697 186.038 118.968 168.831 95.574 171.016C72.2175 173.197 55.0432 193.887 57.1987 217.246C59.3542 240.605 80.0248 257.803 103.386 255.673ZM416.388 255.665C439.76 253.475 456.935 232.751 454.745 209.376C452.555 186.002 431.832 168.828 408.457 171.018C385.082 173.207 367.908 193.931 370.098 217.305C372.288 240.68 393.013 257.855 416.388 255.665ZM327.125 142.072C350.622 142.05 369.642 122.97 369.592 99.4733C369.542 75.977 350.44 56.9775 326.945 57.0552C303.488 57.1327 284.528 76.1965 284.578 99.6535C284.628 123.111 303.667 142.094 327.125 142.072Z"/></svg>
+      </button>
+    </div>
+  </div>
+  <script>
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeSwatches = document.getElementById('theme-swatches');
+    const swatches = document.querySelectorAll('.theme-swatch');
+    let open = false;
+
+    themeBtn.addEventListener('click', () => {
+      open = !open;
+      themeSwatches.classList.toggle('open', open);
+      themeBtn.classList.remove('spinning');
+      void themeBtn.offsetWidth;
+      themeBtn.classList.add('spinning');
+      themeBtn.addEventListener('animationend', () => themeBtn.classList.remove('spinning'), { once: true });
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.theme-switcher')) {
+        open = false;
+        themeSwatches.classList.remove('open');
+      }
+    });
+
+    swatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const theme = swatch.dataset.theme;
+        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+        if (theme !== 'default') document.body.classList.add('theme-' + theme);
+        swatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        localStorage.setItem('theme', theme);
+        open = false;
+        themeSwatches.classList.remove('open');
+      });
+    });
+
+    // Mark active swatch
+    const current = localStorage.getItem('theme') || 'default';
+    document.querySelector(`.theme-swatch[data-theme="${current}"]`)?.classList.add('active');
+    if (current !== 'default') document.querySelector('.theme-swatch[data-theme="default"]')?.classList.remove('active');
+
+    // ── Theme hint bubble ──
+    const hintEl = document.getElementById('theme-hint');
+    function dismissHint() {
+      if (!hintEl) return;
+      hintEl.classList.add('fade-out');
+      setTimeout(() => { hintEl.style.display = 'none'; }, 500);
+      localStorage.setItem('theme-hint-seen', '1');
+    }
+    if (hintEl) {
+      if (localStorage.getItem('theme-hint-seen')) {
+        hintEl.style.display = 'none';
+      } else {
+        setTimeout(dismissHint, 30000);
+        document.getElementById('theme-toggle-btn').addEventListener('click', dismissHint, { once: true });
+      }
+    }
+  </script>
+
+</body>
+</html>

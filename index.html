@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archana Kowshik — Visual Designer &amp; Illustrator</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="doodle.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Firebase compat SDK (v9 compat build) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div id="scroll-prog"></div>
+
+  <!-- NAV (centered pill) -->
+  <nav id="nav">
+    <div class="nav-pill">
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#hero" class="nav-logo"><img src="logo.png" alt="Archana Kowshik" /></a>
+      <div class="nav-contact">
+        <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-contact-dropdown">
+          <a href="mailto:archana3kowshik@gmail.com" class="nc-link">Email →</a>
+          <a href="https://www.instagram.com/arccparcc/" target="_blank" rel="noopener" class="nc-link">Instagram →</a>
+          <a href="https://www.behance.net/archanakowshik" target="_blank" rel="noopener" class="nc-link">Behance →</a>
+          <a href="https://www.linkedin.com/in/archana-kowshik-127635264/" target="_blank" rel="noopener" class="nc-link">LinkedIn →</a>
+        </div>
+      </div>
+      <a href="https://drive.google.com/drive/folders/11KqL-1aypweBOPdiM3A1OaJuRMZyqwwo?usp=sharing" class="nav-link magnetic" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <h1 class="hero-headline">
+        Turning <span class="cycle-wrap"><span id="cycle-word">sketches</span></span> <br>into captivating visuals.
+      </h1>
+
+      <!-- macOS window -->
+      <div class="hero-window-wrap">
+
+        <!-- Sparkles around left sticky -->
+        <span class="hero-sparkle" style="left:-148px;top:28%">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1v16M1 9h16M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="hero-sparkle" style="left:-100px;top:12%">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <span class="hero-sparkle" style="left:-162px;top:62%">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+
+        <!-- Sparkles around right sticky -->
+        <span class="hero-sparkle" style="right:-140px;top:14%">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="hero-sparkle" style="right:-158px;top:44%">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1v9M1 5.5h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="hero-sparkle" style="right:-108px;top:58%">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12M3 3l8 8M11 3L3 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+
+        <!-- Stars + sparkles near the illustration window -->
+        <span class="hero-sparkle" style="top:-18px;right:78px;animation-delay:1.4s">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.1,8.3 22,9.4 17,14.3 18.2,21.2 12,17.9 5.8,21.2 7,14.3 2,9.4 8.9,8.3"/></svg>
+        </span>
+        <span class="hero-sparkle" style="top:-10px;left:70px;animation-delay:0.8s">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.1,8.3 22,9.4 17,14.3 18.2,21.2 12,17.9 5.8,21.2 7,14.3 2,9.4 8.9,8.3"/></svg>
+        </span>
+        <span class="hero-sparkle" style="top:46px;left:-14px;animation-delay:0.65s">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1v9M1 5.5h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="hero-sparkle" style="bottom:96px;right:-16px;animation-delay:1.0s">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.1,8.3 22,9.4 17,14.3 18.2,21.2 12,17.9 5.8,21.2 7,14.3 2,9.4 8.9,8.3"/></svg>
+        </span>
+        <span class="hero-sparkle" style="bottom:44px;left:-14px;animation-delay:0.35s">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12M3 3l8 8M11 3L3 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+
+        <div class="sticky sticky-left" data-draggable>
+          <img src="sticker-cat-jar.webp" alt="cat in jar sticker" class="sticky-doodle" />
+        </div>
+
+        <img src="hero-illustration.png" alt="Archana Kowshik illustration" class="hero-illustration" />
+
+        <div class="sticky sticky-right" data-draggable>
+          <img src="sticker-scaredy-cat.webp" alt="scaredy cat sticker" class="sticky-doodle" />
+        </div>
+        <div class="sticky sticky-extra-1" data-draggable>
+          <img src="sticker-cat-orange.webp" alt="orange cat stamp sticker" class="sticky-doodle" />
+        </div>
+        <div class="sticky sticky-extra-2" data-draggable>
+          <img src="sticker-cat-blue.webp" alt="blue cat stamp sticker" class="sticky-doodle" />
+        </div>
+      </div>
+
+      <p class="hero-info">Archana Kowshik &nbsp;·&nbsp; B.Design '25 &nbsp;·&nbsp; <span style="white-space:nowrap">📍 Bangalore</span></p>
+      <p class="hero-script">Visual Designer &amp; Illustrator</p>
+
+      <div class="scroll-indicator" aria-hidden="true">↓</div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="section">
+    <div class="container">
+      <span class="section-label">Selected Work</span>
+
+      <div class="work-filters">
+        <button class="work-filter" data-filter="all">All</button>
+        <button class="work-filter active" data-filter="campaign">Campaign</button>
+        <button class="work-filter" data-filter="brand">Brand</button>
+        <button class="work-filter" data-filter="editorial">Editorial</button>
+        <button class="work-filter" data-filter="illustration">Illustration</button>
+        <button class="work-filter" data-filter="motion">Motion</button>
+        <button class="work-filter" data-filter="personal">Personal</button>
+      </div>
+
+      <div class="work-list">
+
+        <article class="work-card reveal" data-filter="campaign">
+          <a href="project?id=purdeys" class="work-img-link">
+            <div class="work-img"><img src="projects/purdeys/hero.png" alt="Purdey's" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">D&AD Campaign</span>
+            <h3 class="work-title">Purdey's</h3>
+            <p class="work-desc">A vibrant ad campaign for the Indian market launch of Purdey's Natural Energy, a D&AD New Blood brief.</p>
+            <a href="project?id=purdeys" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="brand">
+          <a href="project?id=cashfree" class="work-img-link">
+            <div class="work-img"><img src="projects/cashfree/gff/hero.jpg" alt="Cashfree" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Brand Design</span>
+            <h3 class="work-title">Cashfree</h3>
+            <p class="work-desc">Ten campaigns across a year-long internship at India's leading B2B payments platform, now full-time.</p>
+            <a href="project?id=cashfree" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="editorial">
+          <a href="project?id=swiss-design" class="work-img-link">
+            <div class="work-img"><img src="projects/swiss-design/hero.png" alt="Swiss Design" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Graphic Design</span>
+            <h3 class="work-title">Swiss Design</h3>
+            <p class="work-desc">Nine album covers inspired by the Swiss International Typographic Style: grid, type, and restraint.</p>
+            <a href="project?id=swiss-design" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="illustration">
+          <a href="project?id=janapada-kit" class="work-img-link">
+            <div class="work-img"><img src="projects/janapada-kit/hero.png" alt="Janapada Kit" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Cultural Design</span>
+            <h3 class="work-title">Lalitha: Janapada Kit</h3>
+            <p class="work-desc">An interactive storytelling kit celebrating Kannada folk tales, named after her grandmother.</p>
+            <a href="project?id=janapada-kit" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="illustration">
+          <a href="project?id=zines" class="work-img-link">
+            <div class="work-img"><img src="projects/zines/z1-mockup1.png" alt="Zines" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Self-Published</span>
+            <h3 class="work-title">Zines</h3>
+            <p class="work-desc">A two-part zine series on sexual harassment and its lasting psychological impact.</p>
+            <a href="project?id=zines" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="motion">
+          <a href="project?id=animation" class="work-img-link">
+            <div class="work-img"><img src="projects/animation/hero.png" alt="Motion Studies" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Motion Design</span>
+            <h3 class="work-title">Motion Studies</h3>
+            <p class="work-desc">3D animation in Blender and 2D frame-by-frame in After Effects, learning motion from scratch.</p>
+            <a href="project?id=animation" class="work-link">View project →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-filter="personal">
+          <a href="project?id=personal-work" class="work-img-link">
+            <div class="work-img"><img src="projects/personal-work/punk-future-1.png" alt="Personal Work" loading="lazy" /></div>
+          </a>
+          <div class="work-meta">
+            <span class="work-cat">Illustrations & Posters</span>
+            <h3 class="work-title">Personal Work</h3>
+            <p class="work-desc">Things made just because: poster design, character illustration, and whatever felt interesting at the time.</p>
+            <a href="project?id=personal-work" class="work-link">View project →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ── Personal work masonry scatter ── -->
+      <div id="sketchbook-section" class="lb-section" hidden>
+        <div class="scatter-grid">
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-18.png"><img src="projects/personal-work/illus-18.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-19.png"><img src="projects/personal-work/illus-19.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-20.png"><img src="projects/personal-work/illus-20.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-21.png"><img src="projects/personal-work/illus-21.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-22.png"><img src="projects/personal-work/illus-22.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-15.webp"><img src="projects/personal-work/illus-15.webp" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-16.webp"><img src="projects/personal-work/illus-16.webp" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-17.webp"><img src="projects/personal-work/illus-17.webp" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-01.png"><img src="projects/personal-work/illus-01.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/punk-future-1.png"><img src="projects/personal-work/punk-future-1.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-03.png"><img src="projects/personal-work/illus-03.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-06.png"><img src="projects/personal-work/illus-06.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/dinner-is-served.png"><img src="projects/personal-work/dinner-is-served.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-02.png"><img src="projects/personal-work/illus-02.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-07.png"><img src="projects/personal-work/illus-07.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-04.png"><img src="projects/personal-work/illus-04.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/punk-future-2.png"><img src="projects/personal-work/punk-future-2.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-08.png"><img src="projects/personal-work/illus-08.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-05.png"><img src="projects/personal-work/illus-05.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-09.png"><img src="projects/personal-work/illus-09.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-10.png"><img src="projects/personal-work/illus-10.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-11.png"><img src="projects/personal-work/illus-11.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-13.png"><img src="projects/personal-work/illus-13.png" alt="" loading="lazy" /></button>
+          <button class="scatter-item lb-thumb" data-src="projects/personal-work/illus-14.png"><img src="projects/personal-work/illus-14.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <!-- Lightbox overlay -->
+      <div id="lb-overlay" class="lb-overlay" hidden aria-modal="true" role="dialog">
+        <button class="lb-close" id="lb-close" aria-label="Close">&#10005;</button>
+        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+        <div class="lb-img-wrap">
+          <img id="lb-img" src="" alt="" />
+        </div>
+        <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#8250;</button>
+      </div>
+
+      <div class="behance-nudge reveal">
+        <span>Want to see the full process & more work?</span>
+        <a href="https://www.behance.net/archanakowshik" target="_blank" rel="noopener" class="behance-nudge-link">
+          View my Behance →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about-bg">
+    <div class="container about-grid">
+
+      <div class="about-left reveal">
+        <div class="polaroid-wrap">
+          <span class="about-sparkle" style="top:-18px;left:-10px">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1v16M1 9h16M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <span class="about-sparkle" style="top:-8px;right:-18px">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <span class="about-sparkle" style="bottom:48px;right:-22px">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="about-sparkle" style="bottom:36px;left:-20px">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <div class="polaroid">
+            <img src="me.jpg" alt="Archana Kowshik" class="polaroid-photo" />
+            <p class="polaroid-cap">~ that's me!</p>
+          </div>
+        </div>
+        <a href="https://drive.google.com/drive/folders/11KqL-1aypweBOPdiM3A1OaJuRMZyqwwo?usp=sharing" class="resume-btn magnetic" target="_blank" rel="noopener">Resume →</a>
+      </div>
+
+      <div class="about-right reveal">
+        <span class="about-label">About me</span>
+        <h2 class="about-title">Design rooted in <em>curiosity.</em></h2>
+        <p>I'm a <strong>visual/graphic designer and illustrator</strong> with a bold and captivating style, creating projects that tell unique, engaging stories.</p>
+        <p>Whether it's crafting visually striking designs or experimenting with new techniques, I bring energy, creativity, and a unique perspective to every project I take on.</p>
+        <p class="edu-line">
+          <strong>Education:</strong> B.Design (Communication Design), PES University, Bangalore, 2021–2025
+        </p>
+        <p class="edu-line">
+          <strong>Currently:</strong> Visual Designer, Cashfree Payments
+        </p>
+        <div class="skills-cloud">
+          <span>Brand Identity</span>
+          <span>Illustration</span>
+          <span>Typography</span>
+          <span>Editorial</span>
+          <span>Motion</span>
+          <span>Art Direction</span>
+          <span>Visual Design</span>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS COLLAGE -->
+  <div class="scatter-strip">
+    <!-- Far from plate, safely below title -->
+    <span class="sc-star" style="top:24%;left:4%;font-size:0.85rem">★</span>
+    <span class="sc-star" style="top:22%;right:5%;font-size:0.9rem">★</span>
+    <!-- Closer to plate, mid-height -->
+    <span class="sc-star" style="top:46%;left:14%;font-size:1.3rem">★</span>
+    <span class="sc-star" style="top:42%;right:13%;font-size:1.4rem">★</span>
+    <!-- Below plate, safely above description -->
+    <span class="sc-star" style="bottom:32%;left:20%;font-size:1rem">★</span>
+    <span class="sc-star" style="bottom:30%;right:18%;font-size:0.85rem">★</span>
+
+    <div class="sc-inner">
+      <h2 class="sc-title">[ here's your full meal ]</h2>
+
+      <div class="food-scene">
+        <img src="plate.png" class="food-plate" alt="" />
+        <div class="food-item" style="top:11%;left:35%;--rot:7deg;" data-skill="Illustration">
+          <div class="food-img-wrap"><img src="egg.png" alt="egg" /></div>
+          <span class="food-skill-label" style="top:-30px;bottom:auto;left:50%;transform:translateX(-50%)">Illustration</span>
+        </div>
+        <div class="food-item" style="top:25%;left:52%;--rot:-9deg;" data-skill="Typography">
+          <div class="food-img-wrap"><img src="pasta.png" alt="pasta" /></div>
+          <span class="food-skill-label" style="top:40%;bottom:auto;left:auto;right:-105px;transform:translateY(-50%)">Typography</span>
+        </div>
+        <div class="food-item" style="top:49%;left:45%;--rot:-8deg;" data-skill="Motion">
+          <div class="food-img-wrap"><img src="drink.png" alt="drink" /></div>
+          <span class="food-skill-label" style="bottom:-28px;left:50%;transform:translateX(-50%)">Motion</span>
+        </div>
+        <div class="food-item" style="top:49%;left:25%;--rot:13deg;" data-skill="Editorial">
+          <div class="food-img-wrap"><img src="toast.png" alt="toast" /></div>
+          <span class="food-skill-label" style="bottom:-28px;left:50%;transform:translateX(-50%)">Editorial</span>
+        </div>
+        <div class="food-item" style="top:25%;left:19%;--rot:-14deg;" data-skill="Brand Identity">
+          <div class="food-img-wrap"><img src="tomato.png" alt="tomato" /></div>
+          <span class="food-skill-label" style="top:40%;bottom:auto;left:-88px;right:auto;transform:translateY(-50%)">Brand Identity</span>
+        </div>
+      </div>
+
+      <p class="sc-desc">designed, illustrated & animated.<br>eat up.</p>
+    </div>
+
+  </div>
+
+  <!-- DOODLE WALL -->
+  <section id="doodle" class="section">
+    <div class="container">
+      <span class="chip">Visitor wall</span>
+      <h2 class="sec-title">Leave a <em>doodle.</em></h2>
+      <p class="sec-desc">Pick up a virtual pencil and draw something, silly, serious, or anything in between. Your masterpiece goes straight into the gallery below for everyone to see. 🎨</p>
+
+      <!-- MS Paint window -->
+      <div class="paint-window" role="region" aria-label="Doodle canvas">
+
+        <!-- Title bar -->
+        <div class="paint-titlebar">
+          <div class="paint-titlebar-left">
+            <span class="paint-titlebar-icon">🎨</span>
+            <span class="paint-titlebar-text">visitor doodle.exe</span>
+          </div>
+          <div class="paint-titlebar-btns">
+            <div class="paint-wb" aria-hidden="true">─</div>
+            <div class="paint-wb" aria-hidden="true">□</div>
+            <div class="paint-wb paint-wb-close" aria-hidden="true">×</div>
+          </div>
+        </div>
+
+        <!-- Menu bar -->
+        <div class="paint-menubar" role="menubar" aria-label="Menu bar">
+          <span role="menuitem" tabindex="0">File</span>
+          <span role="menuitem" tabindex="0">Edit</span>
+          <span role="menuitem" tabindex="0">View</span>
+          <span role="menuitem" tabindex="0">Colors</span>
+          <span role="menuitem" tabindex="0">Help</span>
+        </div>
+
+        <!-- Body: toolbar + canvas -->
+        <div class="paint-body">
+
+          <!-- Left toolbar -->
+          <div class="paint-toolbar" role="toolbar" aria-label="Drawing tools">
+            <button class="pt-tool active" data-tool="pen" title="Pencil" aria-label="Pencil">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                <g transform="rotate(45 10 10)">
+                  <rect x="8" y="2" width="4" height="3" fill="#FF9999"/>
+                  <rect x="8" y="5" width="4" height="2" fill="#AAAAAA"/>
+                  <rect x="8" y="7" width="4" height="7" fill="#FFD700"/>
+                  <polygon points="8,14 12,14 10,18" fill="#C0844A"/>
+                  <rect x="8" y="2" width="4" height="12" fill="none" stroke="#222" stroke-width="1"/>
+                  <polygon points="8,14 12,14 10,18" fill="none" stroke="#222" stroke-width="1"/>
+                  <line x1="8" y1="5" x2="12" y2="5" stroke="#222" stroke-width="0.8"/>
+                  <line x1="8" y1="7" x2="12" y2="7" stroke="#222" stroke-width="0.8"/>
+                </g>
+              </svg>
+            </button>
+            <button class="pt-tool" data-tool="marker" title="Marker" aria-label="Marker">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                <g transform="rotate(45 10 10)">
+                  <rect x="7" y="1" width="6" height="4" fill="#CCCCCC"/>
+                  <rect x="7.5" y="5" width="5" height="10" fill="#4477DD"/>
+                  <polygon points="7.5,15 12.5,15 10,19" fill="#222"/>
+                  <rect x="7" y="1" width="6" height="4" fill="none" stroke="#222" stroke-width="1"/>
+                  <rect x="7.5" y="5" width="5" height="10" fill="none" stroke="#222" stroke-width="1"/>
+                  <polygon points="7.5,15 12.5,15 10,19" fill="none" stroke="#222" stroke-width="0.8"/>
+                  <line x1="7" y1="5" x2="13" y2="5" stroke="#222" stroke-width="0.8"/>
+                </g>
+              </svg>
+            </button>
+            <button class="pt-tool" data-tool="spray" title="Spray" aria-label="Spray">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="7" width="8" height="11" rx="1" fill="#DDDDDD" stroke="#333" stroke-width="1"/>
+                <rect x="4" y="10" width="8" height="4" fill="#8899EE"/>
+                <rect x="4" y="4" width="5" height="4" rx="1" fill="#AAAAAA" stroke="#333" stroke-width="1"/>
+                <rect x="2" y="4" width="3" height="2" fill="#888" stroke="#333" stroke-width="0.7"/>
+                <circle cx="14" cy="3" r="1.2" fill="#777"/>
+                <circle cx="16" cy="6" r="1.1" fill="#999"/>
+                <circle cx="14" cy="9" r="1.3" fill="#AAA"/>
+                <circle cx="16" cy="12" r="1" fill="#BBB"/>
+              </svg>
+            </button>
+            <button class="pt-tool" data-tool="glitter" title="Glitter" aria-label="Glitter">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="10,1 11.5,8 19,10 11.5,12 10,19 8.5,12 1,10 8.5,8" fill="#FFD700" stroke="#B8860B" stroke-width="0.8"/>
+                <circle cx="10" cy="10" r="1.8" fill="#FFFDE7"/>
+                <polygon points="3,2 3.7,4.3 6,5 3.7,5.7 3,8 2.3,5.7 0,5 2.3,4.3" fill="#FFD700" stroke="#B8860B" stroke-width="0.5"/>
+                <polygon points="17,12 17.6,14 19.5,14.5 17.6,15 17,17 16.4,15 14.5,14.5 16.4,14" fill="#FFD700" stroke="#B8860B" stroke-width="0.5"/>
+              </svg>
+            </button>
+            <button class="pt-tool" data-tool="eraser" title="Eraser" aria-label="Eraser">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                <rect x="2" y="7" width="16" height="9" rx="1" fill="#EEEEEE" stroke="#333" stroke-width="1"/>
+                <rect x="2" y="12" width="16" height="4" rx="0" fill="#AABBFF" stroke="#333" stroke-width="1"/>
+                <rect x="3" y="8" width="14" height="1.5" fill="rgba(255,255,255,0.8)"/>
+              </svg>
+            </button>
+            <button class="pt-tool" data-tool="bucket" title="Fill" aria-label="Fill">
+              <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="3,7 5,17 15,17 17,7" fill="#C8C8C8" stroke="#333" stroke-width="1"/>
+                <rect x="3" y="6" width="14" height="2" rx="0.5" fill="#AAAAAA" stroke="#333" stroke-width="1"/>
+                <path d="M 5 6 Q 10 1 15 6" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                <polygon points="6,13 5,17 15,17 14,13" fill="#FF6622"/>
+                <ellipse cx="15.5" cy="18" rx="2" ry="1.5" fill="#FF6622"/>
+                <line x1="15" y1="17" x2="15.5" y2="19" stroke="#FF6622" stroke-width="1.5"/>
+              </svg>
+            </button>
+            <div class="toolbar-sep" role="separator"></div>
+            <div class="pt-sz-label">Size</div>
+            <button class="pt-sz active" data-size="2"  title="Small"  aria-label="Small brush">·</button>
+            <button class="pt-sz"        data-size="5"  title="Medium" aria-label="Medium brush">•</button>
+            <button class="pt-sz"        data-size="12" title="Large"  aria-label="Large brush">●</button>
+            <div class="toolbar-sep" role="separator"></div>
+            <div class="pt-fg-label">Color</div>
+            <div id="doodle-fg-swatch" class="pt-fg-swatch" aria-label="Current color"></div>
+          </div>
+
+          <!-- Canvas area -->
+          <div class="paint-canvas-area">
+            <canvas id="doodle-canvas" width="720" height="380" aria-label="Drawing canvas" role="img"></canvas>
+            <div id="doodle-compliment" class="compliment-bubble" aria-live="polite" aria-atomic="true"></div>
+          </div>
+
+        </div>
+
+        <!-- Bottom: palette + actions -->
+        <div class="paint-bottom">
+          <div id="doodle-palette" class="paint-palette" role="group" aria-label="Color palette"></div>
+          <div class="paint-actions">
+            <button id="doodle-undo" class="paint-btn" aria-label="Undo">Undo</button>
+            <button id="doodle-clear" class="paint-btn" aria-label="Clear canvas">Clear</button>
+            <button id="doodle-save" class="paint-btn paint-btn-primary" aria-label="Add doodle to gallery">✦ Add to gallery</button>
+
+            <!-- Name dialog -->
+            <div id="doodle-name-overlay" class="doodle-name-overlay" style="display:none" aria-modal="true" role="dialog">
+              <div class="doodle-name-dialog">
+                <div class="doodle-name-titlebar">
+                  <div class="doodle-name-titlebar-left">
+                    <span>🎨</span>
+                    <span>Add to gallery</span>
+                  </div>
+                  <button class="paint-wb paint-wb-close" id="doodle-name-cancel-x" aria-label="Close">✕</button>
+                </div>
+                <div class="doodle-name-body">
+                  <p class="doodle-name-label">What's your name?</p>
+                  <p class="doodle-name-sub">Leave blank to stay mysterious 👀</p>
+                  <input id="doodle-name-input" class="doodle-name-input" type="text" maxlength="32" placeholder="your name here..." autocomplete="off" />
+                  <div class="doodle-name-btns">
+                    <button id="doodle-name-cancel" class="paint-btn">Skip</button>
+                    <button id="doodle-name-ok" class="paint-btn paint-btn-primary">✦ Add it!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status bar -->
+        <div class="paint-statusbar" aria-hidden="true">
+          <span id="doodle-status-coords">0, 0</span>
+          <span id="doodle-status-tool">Pencil</span>
+          <span>720 × 380</span>
+        </div>
+
+      </div>
+
+      <!-- Gallery -->
+      <div class="doodle-gallery-section">
+        <div class="doodle-gallery-header">
+          <span class="doodle-gallery-title">Today's doodles ✦</span>
+          <span class="doodle-gallery-note">Resets at midnight, powered by Firebase</span>
+        </div>
+        <p id="doodle-gallery-empty" class="doodle-gallery-empty">No doodles yet today. Be the first! 🎨</p>
+        <div id="doodle-gallery" class="doodle-gallery"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <p class="footer-headline">
+        Creating from <span class="footer-script">curiosity</span>,<br/>driven by <span class="footer-script">craft</span>.
+      </p>
+      <div class="footer-links">
+        <a href="mailto:archana3kowshik@gmail.com" class="footer-email magnetic">archana3kowshik@gmail.com</a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/arccparcc/" target="_blank" rel="noopener" class="footer-social magnetic">Instagram →</a>
+          <a href="https://www.behance.net/archanakowshik" target="_blank" rel="noopener" class="footer-social magnetic">Behance →</a>
+          <a href="https://www.linkedin.com/in/archana-kowshik-127635264/" target="_blank" rel="noopener" class="footer-social magnetic">LinkedIn →</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Archana Kowshik</span>
+        <span>Made with ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- THEME SWITCHER -->
+  <div class="theme-switcher">
+    <div class="theme-swatches" id="theme-swatches">
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Default</span>
+        <button class="theme-swatch active" data-theme="default" title="Default"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Butter</span>
+        <button class="theme-swatch" data-theme="butter" title="Butter"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Sky</span>
+        <button class="theme-swatch" data-theme="sky" title="Sky"></button>
+      </div>
+      <div class="theme-swatch-row">
+        <span class="theme-swatch-label">Dark</span>
+        <button class="theme-swatch" data-theme="dark" title="Dark"></button>
+      </div>
+    </div>
+    <div class="theme-btn-row">
+      <div class="theme-hint" id="theme-hint">try changing theme ✦</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Change theme">
+        <svg width="22" height="22" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M241.812 0H271.087C273.927 1.0151 279.467 0.858635 282.557 1.20211C285.19 1.49468 287.9 1.74654 290.547 2.06122C301.305 3.37212 311.98 5.28285 322.525 7.78447C391.132 24.6613 454.543 67.0703 487.7 130.743C498.103 150.313 505.325 171.413 509.098 193.253C509.773 197.31 510.32 201.386 510.74 205.477C510.982 207.969 511.272 213.62 512 215.803V235.125C511.977 235.205 511.952 235.285 511.93 235.365C510.742 246.498 509.258 257.34 506.04 268.11C495.473 303.482 471.013 333.865 438.763 351.845C422.14 361.113 403.14 367.188 384.158 369.04C369.533 370.443 354.91 369.69 340.277 369.883C329.657 370.023 316.22 369.003 306.247 372.103C292.662 376.448 282.235 387.42 278.582 401.205C275.507 412.217 277.02 424.005 282.772 433.883C285.305 438.23 288.873 441.995 291.658 446.193C307.878 470.625 294.015 504.755 265.3 510.795C264.412 510.98 261.035 511.678 260.395 512H241.839C239.642 511.22 232.892 510.953 230.239 510.693C224.814 510.163 220.021 509.597 214.63 508.68C187.89 504.327 162.016 495.733 137.986 483.22C74.2432 450.042 27.334 391.655 8.66992 322.263C5.07075 309.143 2.72057 295.56 1.34767 282.035C1.04838 279.088 1.00682 273.06 0 270.41V241.385C0.880335 239.386 1.23338 230.663 1.56172 227.721C2.10422 222.703 2.8059 217.705 3.66575 212.732C8.26692 185.765 17.1772 159.714 30.055 135.578C63.4637 72.8347 121.47 26.8192 190.17 8.5629C200.882 5.7103 211.77 3.5662 222.764 2.14456C225.458 1.79997 228.186 1.51878 230.869 1.19934C233.894 0.839217 239.039 0.975322 241.812 0ZM185.375 142.068C208.826 141.785 227.618 122.562 227.368 99.1107C227.119 75.659 207.924 56.84 184.472 57.0547C160.971 57.27 142.104 76.5138 142.354 100.014C142.604 123.514 161.875 142.353 185.375 142.068ZM103.386 255.673C126.785 253.54 144.015 232.83 141.856 209.434C139.697 186.038 118.968 168.831 95.574 171.016C72.2175 173.197 55.0432 193.887 57.1987 217.246C59.3542 240.605 80.0248 257.803 103.386 255.673ZM416.388 255.665C439.76 253.475 456.935 232.751 454.745 209.376C452.555 186.002 431.832 168.828 408.457 171.018C385.082 173.207 367.908 193.931 370.098 217.305C372.288 240.68 393.013 257.855 416.388 255.665ZM327.125 142.072C350.622 142.05 369.642 122.97 369.592 99.4733C369.542 75.977 350.44 56.9775 326.945 57.0552C303.488 57.1327 284.528 76.1965 284.578 99.6535C284.628 123.111 303.667 142.094 327.125 142.072Z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="doodle.js"></script>
+  <script>
+    // ── Theme switcher ──
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeSwatches = document.getElementById('theme-swatches');
+    const swatches = document.querySelectorAll('.theme-swatch');
+    let open = false;
+
+    themeBtn.addEventListener('click', () => {
+      open = !open;
+      themeSwatches.classList.toggle('open', open);
+      themeBtn.classList.remove('spinning');
+      void themeBtn.offsetWidth;
+      themeBtn.classList.add('spinning');
+      themeBtn.addEventListener('animationend', () => themeBtn.classList.remove('spinning'), { once: true });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.theme-switcher')) {
+        open = false;
+        themeSwatches.classList.remove('open');
+      }
+    });
+
+    swatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const theme = swatch.dataset.theme;
+        document.body.className = document.body.className
+          .replace(/theme-\S+/g, '').trim();
+        if (theme !== 'default') document.body.classList.add('theme-' + theme);
+        swatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        localStorage.setItem('theme', theme);
+        open = false;
+        themeSwatches.classList.remove('open');
+      });
+    });
+
+    // Restore saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved && saved !== 'default') {
+      document.body.classList.add('theme-' + saved);
+      document.querySelector(`.theme-swatch[data-theme="${saved}"]`)?.classList.add('active');
+      document.querySelector('.theme-swatch[data-theme="default"]')?.classList.remove('active');
+    }
+
+    // ── Theme hint bubble ──
+    const hintEl = document.getElementById('theme-hint');
+    function dismissHint() {
+      if (!hintEl) return;
+      hintEl.classList.add('fade-out');
+      setTimeout(() => { hintEl.style.display = 'none'; }, 500);
+      localStorage.setItem('theme-hint-seen', '1');
+    }
+    if (hintEl) {
+      if (localStorage.getItem('theme-hint-seen')) {
+        hintEl.style.display = 'none';
+      } else {
+        setTimeout(dismissHint, 30000);
+        themeBtn.addEventListener('click', dismissHint, { once: true });
+      }
+    }
+  </script>
+  <script>
+  /* ── Hero hover doodles ── */
+  (function () {
+    const DOODLES = [
+      // 4-pointed star
+      `<svg width="42" viewBox="0 0 99 123" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.6 2.30226C42.4 3.6356 40.1333 11.6356 38.4 21.6356L35.3333 38.7023L20.6667 44.5689C6.53333 50.3023 0 54.9689 0 59.3689C0 62.9689 5.06667 66.3023 12.9333 67.7689C29.2 70.9689 37.8667 73.3689 40.1333 75.3689C41.4667 76.5689 45.4667 85.2356 49.3333 94.7023C57.3333 114.969 60.5333 120.836 64.4 122.036C71.2 124.169 73.6 113.236 72.9333 81.9023C72.8 73.1023 73.0667 64.4356 73.6 62.5689C74.1333 60.4356 79.3333 55.2356 86.6667 49.5023C96.9333 41.2356 98.6667 39.2356 98.6667 35.9023C98.6667 30.5689 95.3333 29.9023 79.8667 32.3023C62.5333 35.1023 61.7333 34.7023 57.2 18.9689C52 0.968928 48.5333 -3.29774 43.6 2.30226ZM51.7333 27.2356C55.8667 41.3689 60.2667 43.5023 78.9333 40.5689L84.6667 39.7689L80 43.9023C77.4667 46.1689 73.4667 49.9023 71.0667 51.9023C65.2 57.3689 64 62.8356 64 86.4356C64 98.8356 63.4667 106.569 62.8 105.769C62.1333 105.102 59.0667 97.9023 56 89.9023C52.8 81.7689 49.2 73.6356 47.8667 71.7689C44.6667 67.1023 34.5333 62.9689 22.1333 60.9689C16.5333 60.1689 12 58.9689 12 58.5689C12 57.1023 31.6 49.2356 35.2 49.2356C38.8 49.2356 39.4667 47.6356 44.8 26.1689C46 21.2356 47.3333 17.2356 47.8667 17.2356C48.4 17.2356 50.1333 21.7689 51.7333 27.2356Z" fill="currentColor"/></svg>`,
+      // 6-pointed snowflake star
+      `<svg width="50" viewBox="0 0 194 166" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M106.391 2.88943C104.391 5.02276 96.7908 14.4894 89.4575 23.8228C82.1241 33.2894 74.7908 41.8228 73.1908 42.8894C69.5908 45.2894 69.0575 45.0228 46.7908 35.5561C27.4575 27.2894 11.3241 21.9561 5.85745 21.9561C1.45745 21.9561 -1.34255 26.0894 0.657451 29.6894C2.12412 32.3561 22.1241 51.8228 36.5241 64.4894C41.7241 69.1561 46.1241 73.6894 46.1241 74.4894C46.1241 75.2894 39.9908 79.1561 32.3908 83.1561C13.1908 93.2894 6.65745 97.8228 3.99078 102.756C1.05745 108.089 2.79078 110.756 9.59078 112.089C13.5908 112.889 30.1241 111.423 43.8575 109.156L48.7908 108.223V130.756C48.7908 159.023 50.9241 167.823 56.7908 164.623C57.9908 163.956 63.7241 154.356 69.5908 143.156C75.3241 132.089 80.7908 122.756 81.7241 122.356C82.5241 122.089 94.7908 128.356 108.924 136.489C123.057 144.623 135.991 151.289 137.724 151.289C144.657 151.289 141.457 145.556 121.991 123.823C111.724 112.223 103.857 102.489 104.657 102.223C105.324 101.956 121.457 106.889 140.391 113.023C182.391 126.889 189.457 128.623 192.257 125.689C193.857 124.089 193.991 123.023 192.924 120.889C191.457 118.089 167.724 101.556 148.524 90.0894C141.991 86.2228 136.791 82.7561 136.791 82.2228C136.791 81.6894 140.257 79.8228 144.524 78.0894C172.391 66.3561 178.524 61.9561 175.191 56.0894C172.124 50.7561 165.457 49.5561 137.057 49.2894C122.257 49.1561 109.724 48.6228 109.324 48.2228C108.791 47.8228 109.857 40.6228 111.457 32.3561C113.057 24.0894 114.791 13.9561 115.057 9.82276C115.724 3.02276 115.457 2.08943 112.924 0.756095C110.391 -0.577238 109.591 -0.310572 106.391 2.88943ZM107.457 16.4894C107.457 17.0228 106.257 23.6894 104.657 31.0228C101.324 47.8228 101.591 52.7561 106.124 54.7561C108.124 55.6894 120.791 56.6228 136.657 57.0228C152.791 57.4228 164.391 58.3561 165.191 59.1561C166.791 60.7561 148.924 69.5561 134.524 74.0894C125.457 77.0228 122.124 78.7561 122.124 80.6228C122.124 81.1561 133.324 88.7561 147.057 97.4228C177.191 116.623 174.924 115.023 173.991 115.823C173.191 116.623 157.857 111.956 123.591 100.756C97.8575 92.2228 93.1908 91.2894 91.8575 94.7561C90.6575 98.0894 93.0575 101.689 108.257 118.489C116.124 127.289 121.991 134.623 121.191 134.889C120.391 135.156 111.591 130.489 101.457 124.623C81.3241 112.623 78.9241 112.089 74.3908 119.556C72.9241 121.956 68.6575 130.089 64.9241 137.556C61.0575 145.156 57.4575 151.289 56.6575 151.289C55.9908 151.289 55.4575 141.556 55.4575 127.423C55.4575 108.223 55.0575 103.289 53.4575 101.956C51.9908 100.756 48.2575 100.889 35.8575 102.623C27.1908 103.823 17.9908 104.623 15.4575 104.356L10.7908 103.956L15.9908 100.623C18.9241 98.7561 28.5241 93.4228 37.3241 88.6228C51.5908 81.0228 53.4575 79.5561 53.8575 76.2228C54.3908 71.9561 50.6575 67.9561 23.5908 43.2894C15.9908 36.3561 10.3908 30.4894 11.0575 30.3561C12.5241 29.8228 32.7908 37.0228 52.9241 45.2894C68.7908 51.8228 71.4575 52.0894 78.2575 47.1561C81.1908 45.0228 98.5241 25.0228 104.124 17.1561C105.591 15.0228 107.457 14.6228 107.457 16.4894Z" fill="currentColor"/></svg>`,
+      // small 4-pointed star
+      `<svg width="26" viewBox="0 0 48 82" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.2551 1.72755C23.7218 2.66089 20.6551 8.66088 17.4551 15.0609C14.3885 21.5942 9.05515 29.7276 5.72181 33.3276C-0.944854 40.5275 -1.34485 41.8609 2.25515 44.3942C6.12181 47.1942 9.85515 54.3942 13.5885 66.9275C18.5218 83.1942 23.3218 86.1275 26.5218 74.5275C31.3218 56.5275 33.7218 52.6609 44.1218 46.3942C46.1218 45.0609 47.7218 43.4609 47.7218 42.6609C47.7218 41.8609 44.7885 38.3942 41.1885 34.9275C34.2551 28.3942 32.3885 24.1276 30.9218 10.7942C29.7218 1.32755 26.9218 -2.53911 24.2551 1.72755ZM26.2551 24.2609C27.1885 26.9276 29.7218 31.8609 31.8551 35.3275L35.9885 41.4609L31.3218 47.0609C28.7885 50.2609 25.3218 55.4609 23.7218 58.7942L20.6551 64.7942L18.3885 57.9942C15.4551 49.4609 12.5218 43.7275 9.85515 41.5942C7.98848 39.9942 8.25515 39.1942 12.2551 34.5276C14.7885 31.7276 18.1218 26.6609 19.8551 23.4609C23.3218 16.9276 23.9885 17.0609 26.2551 24.2609Z" fill="currentColor"/></svg>`,
+      // flower
+      `<svg width="46" viewBox="0 0 123 137" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69.3106 0.46727C66.7773 1.0006 62.644 3.4006 60.1106 5.8006C55.3106 10.4673 49.044 21.8006 49.044 25.9339C49.044 28.8673 49.3106 28.8673 41.7106 25.5339C32.3773 21.4006 19.3106 22.3339 14.9106 27.5339C9.04396 34.2006 11.1773 45.6673 19.844 55.6673L24.3773 60.7339L21.044 62.8673C7.57729 71.5339 -1.08937 86.0673 0.110626 98.0673C0.510626 103.534 1.57729 105.534 4.91063 108.601C10.244 113.401 16.5106 113.534 28.5106 109.001C33.3106 107.134 37.844 105.667 38.3773 105.667C38.9106 105.667 39.9773 109.667 40.7773 114.467C42.5106 125.134 47.444 133.134 53.844 135.801C67.444 141.534 82.3773 125.001 82.3773 104.067V97.6673H89.1773C99.5773 97.6673 106.377 95.1339 113.177 88.3339C122.377 79.5339 124.511 69.8006 119.711 60.3339C116.511 54.0673 108.777 49.2673 97.9773 46.8673C91.044 45.4006 90.244 44.8673 91.1773 42.4673C91.5773 40.8673 92.3773 34.7339 92.644 28.8673C93.1773 19.9339 92.7773 16.8673 90.644 11.9339C86.644 3.0006 78.244 -1.53273 69.3106 0.46727ZM76.3773 10.4673C82.644 13.0006 84.7773 29.1339 80.3773 41.4006C76.9106 51.0006 78.1106 52.6006 90.5106 54.6006C102.511 56.6006 106.511 58.2006 110.511 62.4673C113.977 66.0673 114.244 71.5339 111.177 77.4006C108.511 82.7339 103.044 86.4673 95.444 88.3339C90.1106 89.6673 88.644 89.5339 82.644 87.0006C73.1773 82.8673 71.044 83.9339 72.5106 92.0673C75.1773 107.401 72.644 119.401 65.3106 126.067C61.5773 129.534 55.9773 128.467 52.5106 123.934C50.244 120.867 49.5773 117.801 49.3106 107.534C48.644 91.2673 47.9773 90.7339 33.3106 97.1339C15.5773 104.734 9.04396 104.601 9.04396 96.4673C9.04396 91.0006 15.3106 79.5339 20.7773 75.0006C23.5773 72.7339 29.044 69.9339 33.044 68.7339C37.044 67.6673 40.7773 65.9339 41.3106 65.1339C42.5106 63.2673 38.644 59.0006 35.7106 59.0006C32.3773 59.0006 23.044 48.3339 21.1773 42.6006C18.644 34.8673 20.1106 32.3339 27.1773 32.3339C33.7106 32.3339 39.044 34.6006 46.5106 40.4673C54.9106 47.1339 57.5773 45.4006 58.7773 32.6006C59.844 22.8673 62.1106 17.9339 67.7106 13.1339C72.244 9.4006 72.9106 9.26727 76.3773 10.4673Z" fill="currentColor"/><path d="M55.176 61.1342C52.6427 63.5342 52.5094 64.8675 54.376 68.4675C56.2427 71.9342 61.8427 71.8009 63.7094 68.2009C64.9094 66.0675 64.776 64.7342 63.0427 62.2009C60.6427 58.4675 58.1094 58.0675 55.176 61.1342Z" fill="currentColor"/></svg>`,
+      // smiley
+      `<svg width="44" viewBox="0 0 98 73" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.1557 5.41321C26.1557 14.6132 27.4891 27.5465 34.4224 26.2132C39.7557 25.2799 45.0891 10.2132 42.4224 3.41321C40.5557 -1.78679 36.4224 -0.986789 32.1557 5.41321Z" fill="currentColor"/><path d="M69.6211 7.67953C64.9544 10.7462 63.4878 24.8795 67.0878 31.9462C69.8878 37.2795 73.7544 37.1462 77.2211 31.5462C80.9544 25.6795 80.1544 14.6129 75.7544 9.94619C72.4211 6.34619 71.8878 6.21286 69.6211 7.67953Z" fill="currentColor"/><path d="M0.288106 21.9456C-1.57856 29.279 5.88811 47.679 15.0881 58.2123C17.8881 61.5456 23.4881 65.5456 28.8214 68.2123C37.2214 72.3456 38.5548 72.6123 51.7548 72.6123C64.4214 72.6123 66.5548 72.2123 74.1548 68.7456C83.8881 64.2123 97.0881 51.0123 97.0881 45.679C97.0881 41.0123 93.7548 41.8123 84.5548 49.1456C74.4214 57.1456 69.6214 59.679 61.2214 61.279C53.2214 62.7456 40.2881 60.879 33.2214 57.279C24.8214 53.0123 12.4214 37.279 7.48811 24.6123C4.95477 18.2123 1.62144 16.879 0.288106 21.9456Z" fill="currentColor"/></svg>`,
+    ];
+
+    // inside = appended to .window-canvas, outside = appended to .hero-window-wrap
+    const ZONES = [
+      { pos: { top: '6%',    left: '4%'   }, inside: true  },
+      { pos: { top: '5%',    right: '5%'  }, inside: true  },
+      { pos: { bottom: '10%',left: '3%'   }, inside: true  },
+      { pos: { top: '-52px', right: '-52px' }, inside: false },
+      { pos: { top: '25%',   left: '-65px'  }, inside: false },
+      { pos: { bottom: '-48px', right: '-44px' }, inside: false },
+    ];
+
+    const wrap   = document.querySelector('.hero-window-wrap');
+    if (!wrap) return;
+    const canvas = document.querySelector('.window-canvas') || wrap;
+
+    let els = [];
+    let touchVisible = false;
+
+    function rand(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function spawnDoodles() {
+      els.forEach(el => el.remove());
+      els = [];
+
+      const shuffled = [...DOODLES].sort(() => Math.random() - 0.5);
+
+      ZONES.forEach((zone, i) => {
+        const el = document.createElement('span');
+        el.className = 'hero-hover-doodle';
+
+        const rotStart = rand(-35, 35);
+        const rotEnd   = rand(-18, 18);
+        el.style.setProperty('--rot',     rotStart + 'deg');
+        el.style.setProperty('--rot-end', rotEnd   + 'deg');
+
+        Object.entries(zone.pos).forEach(([k, v]) => {
+          const jitter = rand(-8, 8);
+          el.style[k] = typeof v === 'string' && v.includes('%')
+            ? v
+            : (parseInt(v) + jitter) + 'px';
+        });
+
+        el.innerHTML = shuffled[i % shuffled.length];
+        (zone.inside ? canvas : wrap).appendChild(el);
+        els.push(el);
+
+        setTimeout(() => el.classList.add('pop'), i * 55);
+      });
+    }
+
+    function hideDoodles() {
+      els.forEach(el => {
+        el.classList.remove('pop');
+        setTimeout(() => el.remove(), 380);
+      });
+      els = [];
+    }
+
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    if (isTouch) {
+      // mobile/tablet: tap to show, tap anywhere else to hide
+      wrap.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (touchVisible) {
+          hideDoodles();
+          touchVisible = false;
+        } else {
+          spawnDoodles();
+          touchVisible = true;
+        }
+      });
+      document.addEventListener('click', () => {
+        if (touchVisible) {
+          hideDoodles();
+          touchVisible = false;
+        }
+      });
+    } else {
+      // desktop: hover
+      wrap.addEventListener('mouseenter', spawnDoodles);
+      wrap.addEventListener('mouseleave', hideDoodles);
+    }
+  })();
+  </script>
+  <script src="lightbox.js"></script>
+</body>
+</html>

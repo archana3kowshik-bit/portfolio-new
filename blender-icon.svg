@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Orange outer circle -->
+  <circle cx="305" cy="252" r="165" fill="#F5792A"/>
+  <!-- White wedge to cut the opening facing left -->
+  <polygon fill="white" points="305,252 158,108 138,396"/>
+  <!-- White inner ring -->
+  <circle cx="305" cy="252" r="110" fill="white"/>
+  <!-- Blue center dot -->
+  <circle cx="305" cy="252" r="71" fill="#265787"/>
+  <!-- Upper arm: from ring opening upper edge toward upper-right -->
+  <polygon fill="#F5792A" points="182,108 492,48 474,102 168,158"/>
+  <!-- Lower arm: from ring opening lower edge toward lower-left -->
+  <polygon fill="#F5792A" points="165,308 186,400 8,452 28,398"/>
+</svg>

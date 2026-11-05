@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cashfree Rebrand — Archana Kowshik</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root { --cf-green: #0d9e6e; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: var(--bg); color: var(--ink); font-family: 'Instrument Sans', sans-serif; overflow-x: hidden; }
+
+  /* Nav */
+  .cf-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent; transition: border-color 0.3s;
+  }
+  @media (prefers-color-scheme: dark) {
+    .cf-nav { background: rgba(10,10,10,0.9); }
+  }
+  :root[data-theme="dark"] .cf-nav { background: rgba(10,10,10,0.9); }
+  .cf-nav.scrolled { border-color: rgba(26,26,26,0.07); }
+  .cf-nav-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.03em;
+    color: var(--ink-mid); text-decoration: none; transition: color 0.2s;
+  }
+  .cf-nav-back:hover { color: var(--cf-green); }
+  .cf-nav-back svg { transition: transform 0.2s; }
+  .cf-nav-back:hover svg { transform: translateX(-3px); }
+  .cf-nav-logo {
+    font-family: 'Bitroad', monospace; font-style: italic;
+    font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink-light);
+  }
+
+  /* Hero */
+  .cf-hero { padding-top: 80px; width: 100%; overflow: hidden; }
+  .cf-hero img { width: 100%; display: block; max-height: 90vh; object-fit: cover; object-position: top center; }
+
+  /* Intro */
+  .cf-intro { max-width: 760px; margin: 80px auto 0; padding: 0 48px; }
+  .cf-eyebrow {
+    font-family: 'Bitroad', monospace; font-style: italic;
+    font-size: 0.78rem; letter-spacing: 0.1em; color: var(--cf-green);
+    display: block; margin-bottom: 16px;
+  }
+  .cf-intro h1 {
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.12;
+    color: var(--ink); margin-bottom: 24px;
+  }
+  .cf-intro-meta {
+    display: flex; gap: 48px; flex-wrap: wrap;
+    padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .cf-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .cf-meta-label {
+    font-family: 'Bitroad', monospace; font-style: italic;
+    font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-light);
+  }
+  .cf-meta-value { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
+  .cf-intro-body { font-size: 1.05rem; line-height: 1.85; color: var(--ink-mid); }
+
+  /* Section base */
+  .cf-section { padding: 100px 48px; max-width: 1280px; margin: 0 auto; }
+  .cf-section-label {
+    font-family: 'Bitroad', monospace; font-style: italic;
+    font-size: 0.78rem; letter-spacing: 0.1em; color: var(--cf-green);
+    display: block; margin-bottom: 12px;
+  }
+  .cf-section-title {
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem); line-height: 1.2;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  .cf-section-body {
+    font-size: 1rem; line-height: 1.8; color: var(--ink-mid);
+    max-width: 640px; margin-bottom: 56px;
+  }
+
+  /* Social posts scattered layout */
+  .cf-socials-section { padding: 100px 0; overflow: hidden; }
+  .cf-socials-header { padding: 0 48px; max-width: 1280px; margin: 0 auto 60px; }
+  .cf-posts-scatter {
+    position: relative; width: 100%; max-width: 1280px;
+    margin: 0 auto; padding: 0 48px; height: 760px;
+  }
+  .cf-post-card {
+    position: absolute; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 8px 36px rgba(0,0,0,0.13);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, z-index 0s;
+  }
+  .cf-post-card:hover { box-shadow: 0 20px 56px rgba(0,0,0,0.2); z-index: 20 !important; transform: translateY(-10px) scale(1.04) rotate(0deg) !important; }
+  .cf-post-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cf-post-card:nth-child(1) { left:1%;   top:0;    width:28%; height:400px; transform:rotate(-2.5deg); z-index:2; }
+  .cf-post-card:nth-child(2) { left:24%;  top:7%;   width:26%; height:370px; transform:rotate(1.8deg);  z-index:3; }
+  .cf-post-card:nth-child(3) { left:2%;   top:46%;  width:26%; height:355px; transform:rotate(-1.2deg); z-index:2; }
+  .cf-post-card:nth-child(4) { left:50%;  top:2%;   width:29%; height:430px; transform:rotate(2.2deg);  z-index:4; }
+  .cf-post-card:nth-child(5) { left:67%;  top:38%;  width:27%; height:370px; transform:rotate(-1.8deg); z-index:3; }
+
+  /* 3D Graphic Elements Grid */
+  .cf-grid-section { padding: 100px 0; border-top: 1px solid var(--border); }
+  .cf-grid-header { padding: 0 48px; max-width: 1280px; margin: 0 auto 60px; }
+  .cf-graphic-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.2fr 1.3fr;
+    grid-auto-rows: minmax(200px, auto);
+    gap: 1px; background: var(--border);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    max-width: 1280px; margin: 0 auto;
+  }
+  .g-cell {
+    background: var(--bg); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 180px;
+  }
+  .g-cell img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .g-cell:hover img { transform: scale(1.06); }
+
+  .g-currency  { grid-column:1; grid-row:1/3; }
+  .g-blob      { grid-column:2; grid-row:1; }
+  .g-phone     { grid-column:3; grid-row:1; }
+  .g-round1    { grid-column:4; grid-row:1; }
+  .g-mockup    { grid-column:2; grid-row:2/4; }
+  .g-orange    { grid-column:3; grid-row:2; }
+  .g-cashfree  { grid-column:4; grid-row:2; }
+  .g-collage   { grid-column:1; grid-row:3; }
+  .g-arrow     { grid-column:3; grid-row:3; }
+  .g-round2    { grid-column:4; grid-row:3; }
+  .g-star      { grid-column:1; grid-row:4/6; }
+  .g-green     { grid-column:2; grid-row:4; }
+  .g-phone2    { grid-column:3; grid-row:4; }
+  .g-round3    { grid-column:4; grid-row:4; }
+
+  /* Brand Collaterals — dark */
+  .cf-dark-section {
+    background: #0d0d0d; padding: 100px 48px; margin: 0;
+  }
+  .cf-dark-section .cf-section-label { color: var(--cf-green); }
+  .cf-dark-section .cf-section-title { color: #fff; }
+  .cf-dark-section .cf-section-body { color: rgba(255,255,255,0.45); }
+  .cf-dark-inner { max-width: 1280px; margin: 0 auto; }
+  .cf-collateral-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    border-radius: 10px; overflow: hidden;
+  }
+  .cf-collateral-panel { overflow: hidden; }
+  .cf-collateral-panel img {
+    width: 100%; display: block;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .cf-collateral-panel:hover img { transform: scale(1.03); }
+
+  /* Merch */
+  .cf-merch-collage {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 12px; align-items: start;
+  }
+  .cf-merch-tshirt { border-radius:10px; overflow:hidden; }
+  .cf-merch-tshirt img { width:100%; display:block; }
+  .cf-merch-col { display:flex; flex-direction:column; gap:12px; }
+  .cf-merch-col > div { border-radius:10px; overflow:hidden; }
+  .cf-merch-col > div img { width:100%; display:block; object-fit:cover; }
+  .cf-merch-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .cf-merch-row > div { border-radius:10px; overflow:hidden; }
+  .cf-merch-row > div img { width:100%; display:block; object-fit:cover; }
+
+  /* Explorations */
+  .cf-explore-stack { display:flex; flex-direction:column; gap:12px; margin-bottom:12px; }
+  .cf-explore-stack img { width:100%; display:block; border-radius:10px; object-fit:cover; }
+  .cf-explore-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .cf-explore-cell { border-radius:10px; overflow:hidden; aspect-ratio:3/4; }
+  .cf-explore-cell img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .cf-explore-cell:hover img { transform:scale(1.07); }
+
+  /* Animation videos */
+  .cf-anim-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .cf-anim-clip {
+    border-radius: 10px; overflow: hidden;
+  }
+  .cf-anim-clip video {
+    width: 100%; display: block; background: #000;
+  }
+
+  /* Next */
+  .cf-next {
+    border-top:1px solid var(--border); padding:72px 48px;
+    max-width:1280px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .cf-next-label {
+    font-family:'Bitroad',monospace; font-style:italic;
+    font-size:0.78rem; letter-spacing:0.1em; color:var(--ink-light);
+    display:block; margin-bottom:8px;
+  }
+  .cf-next-link {
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(1.4rem,3vw,2.2rem);
+    color:var(--ink); text-decoration:none; transition:color 0.2s;
+  }
+  .cf-next-link:hover { color:var(--cf-green); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    transition-delay:var(--d,0ms);
+  }
+  .reveal.in { opacity:1; transform:none; }
+
+  /* Responsive */
+  @media (max-width:900px) {
+    .cf-nav { padding:16px 24px; }
+    .cf-section { padding:64px 24px; }
+    .cf-socials-header, .cf-grid-header { padding:0 24px; }
+    .cf-posts-scatter { height:460px; padding:0 24px; }
+    .cf-graphic-grid { grid-template-columns:1fr 1fr; }
+    .cf-collateral-grid { grid-template-columns:1fr; }
+    .cf-merch-collage { grid-template-columns:1fr; }
+    .cf-explore-row { grid-template-columns:1fr 1fr; }
+    .cf-next { padding:48px 24px; flex-direction:column; align-items:flex-start; gap:12px; }
+    .cf-dark-section { padding:64px 24px; }
+    .cf-intro { padding:0 24px; }
+  }
+  @media (max-width:600px) {
+    .cf-posts-scatter { height:720px; }
+    .cf-post-card:nth-child(1){ left:2%;  top:0;   width:62%; height:250px; }
+    .cf-post-card:nth-child(2){ left:33%; top:12%; width:62%; height:230px; }
+    .cf-post-card:nth-child(3){ left:2%;  top:38%; width:62%; height:250px; }
+    .cf-post-card:nth-child(4){ left:30%; top:50%; width:62%; height:250px; }
+    .cf-post-card:nth-child(5){ left:8%;  top:72%; width:68%; height:220px; }
+    .cf-graphic-grid { grid-template-columns:1fr 1fr; }
+    .cf-explore-row { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="cf-nav" id="cf-nav">
+  <a href="project?id=cashfree" class="cf-nav-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to Cashfree
+  </a>
+  <span class="cf-nav-logo">Archana Kowshik</span>
+</nav>
+
+<!-- Hero — full Figma frame export -->
+<section class="cf-hero">
+  <img src="projects/cashfree-rebrand/hero.png" alt="Roses are, Designing for GFF 26, Re-Branding &amp; Everything in between." loading="eager">
+</section>
+
+<!-- Project intro -->
+<div class="cf-intro reveal">
+  <span class="cf-eyebrow">Cashfree Payments · 2026</span>
+  <h1>Re-Branding &amp; Everything in Between</h1>
+  <div class="cf-intro-meta">
+    <div class="cf-meta-item">
+      <span class="cf-meta-label">Role</span>
+      <span class="cf-meta-value">Visual Designer</span>
+    </div>
+    <div class="cf-meta-item">
+      <span class="cf-meta-label">Scope</span>
+      <span class="cf-meta-value">Brand · Social · Merch · Spatial</span>
+    </div>
+    <div class="cf-meta-item">
+      <span class="cf-meta-label">Year</span>
+      <span class="cf-meta-value">2026</span>
+    </div>
+    <div class="cf-meta-item">
+      <span class="cf-meta-label">Tools</span>
+      <span class="cf-meta-value">Figma · Jitter · Adobe</span>
+    </div>
+  </div>
+  <p class="cf-intro-body">
+    When Cashfree Payments stepped into the Global Fintech Fest 2026, we didn't just want to show up. We wanted to leave a mark. This project brought together a full rebrand expression across social media, brand collaterals, merch, and environmental design. Every touchpoint, from a LinkedIn post to an elevator wall wrap, carried the same energy: bold, modern, unmistakably Cashfree.
+  </p>
+</div>
+
+<!-- Social Media -->
+<section class="cf-socials-section">
+  <div class="cf-socials-header">
+    <span class="cf-section-label reveal">Social Media</span>
+    <h2 class="cf-section-title reveal" style="--d:80ms">Posts that stopped the scroll.</h2>
+    <p class="cf-section-body reveal" style="--d:160ms">
+      Every post was designed to feel native to the platform while unmistakably Cashfree. From announcing the IPG Risk Simulator at GFF to the Google Pay integration, the new brand language spoke in numbers, rhythm, and color. Each card is a real post that went live, designed end-to-end.
+    </p>
+  </div>
+  <div class="reveal" style="--d:200ms; max-width:1280px; margin:0 auto; padding:0 48px;">
+    <img src="projects/cashfree-rebrand/social-collage.webp" alt="Cashfree social media posts" style="width:100%; display:block;">
+  </div>
+</section>
+
+
+<!-- Motion & Animation (Jitter placeholder) -->
+<section class="cf-section reveal">
+  <span class="cf-section-label">Motion &amp; Animation</span>
+  <h2 class="cf-section-title">The brand, in motion.</h2>
+  <p class="cf-section-body">
+    Static assets were only half the story. Using Jitter, I brought the new visual language into animation, giving the brand a kinetic dimension it had never had before. Brand elements don't just sit; they breathe, flow, and transition.
+  </p>
+  <div class="cf-anim-grid">
+    <div class="cf-anim-clip">
+      <video src="projects/cashfree-rebrand/animation-cf-post.mp4" autoplay loop muted playsinline></video>
+    </div>
+    <div class="cf-anim-clip">
+      <video src="projects/cashfree-rebrand/animation-slide-3.mp4" autoplay loop muted playsinline></video>
+    </div>
+  </div>
+</section>
+
+<!-- Brand Collaterals — dark background -->
+<div class="cf-dark-section">
+  <div class="cf-dark-inner">
+    <span class="cf-section-label reveal">Brand Collaterals</span>
+    <h2 class="cf-section-title reveal" style="--d:80ms; max-width:560px">A modern identity for a modern era.</h2>
+    <p class="cf-section-body reveal" style="--d:160ms">
+      From the circular Cashfree banner to the product mockup grid, every collateral was built to flex. Dark backgrounds, the brand's signature green, and clean typography that works at any scale. We're not adapting to the AI-native world; we're building for it.
+    </p>
+    <div class="cf-collateral-grid reveal" style="--d:220ms">
+      <div class="cf-collateral-panel">
+        <img src="projects/cashfree-rebrand/collateral-left.png" alt="Cashfree brand collateral: We're building for it">
+      </div>
+      <div class="cf-collateral-panel">
+        <img src="projects/cashfree-rebrand/collateral-right.png" alt="Cashfree brand collateral: A modern identity">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Merch -->
+<section class="cf-section">
+  <span class="cf-section-label reveal">Merch</span>
+  <h2 class="cf-section-title reveal" style="--d:80ms">The brand you can wear.</h2>
+  <p class="cf-section-body reveal" style="--d:160ms">
+    Rebrand energy doesn't stop at the screen. We took it into physical form: t-shirts, danglers, sticker sheets. Things you could wear, carry, and stick on everything. The GFF merch became conversation starters before anyone even reached the booth.
+  </p>
+  <div class="reveal" style="--d:200ms">
+    <img src="projects/cashfree-rebrand/merch-collage.webp" alt="Cashfree merch" style="max-width:520px; width:100%; display:block; margin:0 auto;">
+  </div>
+</section>
+
+<!-- Explorations -->
+<section class="cf-section">
+  <span class="cf-section-label reveal">Explorations</span>
+  <h2 class="cf-section-title reveal" style="--d:80ms">From screen to space.</h2>
+  <p class="cf-section-body reveal" style="--d:160ms">
+    What does the brand look like at scale? We asked that question and ran with it: elevator wall wraps, building signage mockups, environmental design that proved the rebrand could live at any size. These explorations shaped how we thought about brand presence at GFF.
+  </p>
+  <div class="cf-explore-stack reveal" style="--d:200ms">
+    <img src="projects/cashfree-rebrand/explore-2.png" alt="Cashfree environmental design, elevator" style="max-height:420px;">
+    <img src="projects/cashfree-rebrand/explore-1.png" alt="Cashfree environmental design, building" style="max-height:360px;">
+  </div>
+  <div class="cf-explore-row reveal" style="--d:300ms">
+    <div class="cf-explore-cell">
+      <img src="projects/cashfree-rebrand/explore-3.png" alt="Exploration">
+    </div>
+    <div class="cf-explore-cell">
+      <img src="projects/cashfree-rebrand/explore-4.png" alt="Exploration">
+    </div>
+    <div class="cf-explore-cell">
+      <img src="projects/cashfree-rebrand/explore-5.png" alt="Exploration">
+    </div>
+    <div class="cf-explore-cell">
+      <img src="projects/cashfree-rebrand/explore-6.png" alt="Exploration">
+    </div>
+  </div>
+</section>
+
+<!-- Footer nav -->
+<div class="cf-next">
+  <div>
+    <span class="cf-next-label">Done exploring?</span>
+    <a href="/" class="cf-next-link">Back to all work →</a>
+  </div>
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('cf-nav').classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>

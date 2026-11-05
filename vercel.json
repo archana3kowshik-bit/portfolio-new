@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/cashfree-rebrand", "destination": "/cashfree-rebrand.html" },
+    { "source": "/project", "destination": "/project.html" }
+  ]
+}
