@@ -1419,8 +1419,8 @@ body.theme-dark #contact {
 .lb-nav:disabled { opacity: 0.2; cursor: default; }
 
 @media (max-width: 640px) {
-  .scatter-grid { columns: 2 140px; column-gap: 12px; }
-  .scatter-item { margin-bottom: 12px; padding: 6px 6px 20px; }
+  .scatter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; columns: unset; column-gap: unset; }
+  .scatter-item { margin-bottom: 0; padding: 6px 6px 20px; break-inside: unset; }
   .lb-img-wrap { max-width: calc(100vw - 100px); }
   .lb-nav { font-size: 2rem; padding: 4px 8px; }
 }
